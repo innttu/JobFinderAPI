@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Books</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Available jobs</h1>
+        <ul>
+        <li th:each="job:${job}">
+            <a th:href="@{jobs/{item}(item=${job.title}) }" th:text="${job.title} + (' ')">job</a>
+        <form  method="post" action="/deletejob">
+                        <input type="hidden" id="jobs" name="jobTitle" th:value="${job.title}">
+                        <button type="submit">Delete</button>  
+             </form>
+        </li>
+        </ul>
+        <form method="get" action="/">
+            <button>Back</button>
+        </form>
+        <form method="post" action="/jobs">
+            <input type="text" name="jobTitle" placeholder="New Job Title" required>
+            <input type="text" name="jobDescription" placeholder="Description of the job" required>
+            <input type="text" name="jobCompany" placeholder="Employer company" required>
+            <button>Add job</button>
+        </form>
+    </body>
+</html>
