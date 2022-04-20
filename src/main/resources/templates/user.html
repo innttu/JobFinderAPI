@@ -8,9 +8,9 @@
     </head>
     <body>
         <h2>Käyttäjätiedot:</h2>
-        <p th:text="'Nimi: ' + ${user.name}">name</p>
+        <p th:text="'Nimi: ' + ${applicant.name}">name</p>
         <p th:text="'Kirjoja lainassa kpl: ' + ${user.appliedJobs}">bol</p>
-        
+        <!--
         <ul>
         <li th:each="appliedjobslist:${appliedjobslist}">
             <span th:text="${appliedjobslist}">job</span>
@@ -35,7 +35,7 @@
                     <button type="submit">Hae</button>
                 </form>
             
-            
+            -->
         </li>
         </ul>
         

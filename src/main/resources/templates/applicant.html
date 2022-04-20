@@ -14,9 +14,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <h1>Create user and search applicants</h1>
         <ul>
         <li th:each="applicant:${applicant}">
-            <a th:href="@{applicant/{item}(item=${applicant.name}) }"  th:text="${applicant.name}">applicant</a> (
-            <a th:href="@{applicant/{item}(item=${applicant.profession}) }"  th:text="${applicant.profession}">profession</a>) <br>
-            <a th:href="@{applicant/{item}(item=${applicant.age}) }"  th:text="${applicant.age}">age</a>
+            <a th:href="@{/applicant/{item}(item=${applicant.name}) }"  th:text="${applicant.name}">applicant</a> (
+            <span th:href="@{/applicant/{item}(item=${applicant.profession}) }"  th:text="${applicant.profession}">profession</span>) <br>
+            <span th:href="@{/applicant/{item}(item=${applicant.age}) }"  th:text="${applicant.age}">age</span>
             <form  method="post" action="/deleteapplicant">
                    <input type="hidden" id="applicant" name="applicantName" th:value="${applicant.name}">
                    <button type="submit">Delete</button>  

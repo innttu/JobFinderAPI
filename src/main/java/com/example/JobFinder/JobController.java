@@ -49,20 +49,4 @@ public class JobController {
         jobService.deleteJob(jobTitle);
         return "redirect:/jobs/";
     }
-    /*
-    @PostMapping("/applyjob")
-    public String applyJob(@RequestParam String userName, String jobTitle){
-        applicantService.applyJob(userName, jobTitle);
-        System.out.println("jobCont. user: " + userName + " job: " + jobTitle);
-
-        return "redirect:/applicant/" + userName;
-    }
-
-    
-    @PostMapping("/returnjob")
-    public String returnJob(@RequestParam String userName, String jobTitle){
-        applicantService.returnJob(userName, jobTitle);
-        return "redirect:/applicant/" + userName;
-    }
-*/
 }

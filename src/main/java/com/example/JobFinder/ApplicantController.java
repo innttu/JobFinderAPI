@@ -24,7 +24,6 @@ public class ApplicantController {
     public String getApplicant(Model model){
         ArrayList<Applicant> applicant = applicantService.getApplicant();
         model.addAttribute("applicant", applicant);
-        System.out.println("Test");
         return "applicant";
     }
     
@@ -41,14 +40,10 @@ public class ApplicantController {
         applicantService.deleteApplicant(applicantName);
         return "redirect:/applicant/";
     }
-    @GetMapping("applicant/{applicantName}")
+    @GetMapping("{applicantName}")
     public String getUserInfo(@PathVariable String applicantName, Model model){
         Applicant user = applicantService.findApplicantByName(applicantName);
-        //List<Job> jobs = jobService.getJobs();
-        //List<String> appliedjobslist = applicantService.getAppliedJobs(applicantName);
         model.addAttribute("user", user);
-        //model.addAttribute("job", jobs);
-        //model.addAttribute("appliedjobslist", appliedjobslist);
         return "user";
     }
 }

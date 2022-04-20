@@ -25,10 +25,5 @@ public class Job extends AbstractPersistable<Long> {
         this.description = jobDescription;
         this.company = jobCompany;
     }
-    /*
-    public boolean isJobApplied(){
-        return this.applied;
-    }
-*/
 }
 
