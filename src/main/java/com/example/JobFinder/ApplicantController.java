@@ -40,10 +40,10 @@ public class ApplicantController {
         applicantService.deleteApplicant(applicantName);
         return "redirect:/applicant/";
     }
-    @GetMapping("{applicantName}")
+    @GetMapping("applicant/{applicantName}")
     public String getUserInfo(@PathVariable String applicantName, Model model){
-        Applicant user = applicantService.findApplicantByName(applicantName);
-        model.addAttribute("user", user);
+        Applicant applicant = applicantService.findApplicantByName(applicantName);
+        model.addAttribute("user", applicant);
         return "user";
     }
 }

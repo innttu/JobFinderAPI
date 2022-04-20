@@ -2,16 +2,12 @@
 
 <html>
     <head>
-        <title>Bookinfo</title>
+        <title>Jobinfo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <h2 th:text="${job.title}">title</h2>
-        <p th:text="'Kirjailija: ' + ${job.description}">author</p>
-        <p th:text="'Sivujen määrä: ' + ${job.company}">pages</p>
-        <p th:if="${job.applied == true}">Lainassa</p>
-        <p th:unless="${job.applied == true}">Saatavilla</p>
         <form method="get" action="/jobs">
             <button>Back</button>
         </form>

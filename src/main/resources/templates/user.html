@@ -1,45 +1,16 @@
 <!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 
+-->
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Userpage</title>
+        <title>Applicants</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h2>Käyttäjätiedot:</h2>
-        <p th:text="'Nimi: ' + ${applicant.name}">name</p>
-        <p th:text="'Kirjoja lainassa kpl: ' + ${user.appliedJobs}">bol</p>
-        <!--
-        <ul>
-        <li th:each="appliedjobslist:${appliedjobslist}">
-            <span th:text="${appliedjobslist}">job</span>
-            <form method="post" action="/returnjob">
-                    <input type="hidden" id="user" name="userName" th:value="${user.name}">
-                    <input type="hidden" id="job" name="jobTitle" th:value="${appliedjobslist}">
-                    <button type="submit">Palauta kirja</button>
-                </form>
-        </li>
-        </ul>
-        <form method="get" action="/people">
-            <button>Back</button>
-        </form>
-        </br>
-        <h1>Available jobs</h1>
-        <ul>
-        <li th:if="${job.applied == false}" th:each="job:${job}">
-            <span th:text="${job.title}">job</span>
-            <form method="post" action="/applyjob">
-                    <input type="hidden" id="user" name="userName" th:value="${user.name}">
-                    <input type="hidden" id="job" name="jobTitle" th:value="${job.title}">
-                    <button type="submit">Hae</button>
-                </form>
-            
-            -->
-        </li>
-        </ul>
-        
-        </br><!-- comment -->
-         
+        <h1>USER</h1>
     </body>
 </html>
