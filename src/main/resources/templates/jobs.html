@@ -2,31 +2,102 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Books</title>
+        <title>JobFinder - jobs</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <h1>Available jobs</h1>
-        <ul>
-        <li th:each="job:${job}">
-            <a th:href="@{/jobs/{item}(item=${job.title}) }" th:text="${job.title} + (' ')">job</a> (
-            <span th:href="@{jobs/{item}(item=${job.company}) }" th:text="${job.company} + (' ')">company</span>) <br> 
-            <span th:href="@{jobs/{item}(item=${job.description}) }" th:text="${job.description} + (' ')">description</span> 
-        <form  method="post" action="/deletejob">
-            <input type="hidden" id="jobs" name="jobTitle" th:value="${job.title}"> <br>
-                        <button type="submit">Delete</button>  
-             </form>
-        </li>
-        </ul>
-        <form method="get" action="/">
-            <button>Back</button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .delete_button {
+    font-size: 11px; padding: 0 auto; height: 25px; margin-left: 1%; 
+    border-radius: 5px;
+    background-color: rgb(19, 78, 228);
+    border: none;
+    color: white;
+}
+.delete_button:hover {
+    font-size: 11px; padding: 0 auto; height: 25px; margin-left: 50%;
+    border-radius: 5px;
+    background-color: rgb(17, 66, 192);
+    border: none;
+    color: white;
+}
+
+li { list-style: none; }
+ul { margin-left: -8%; }
+  </style>
+</head>
+<body>
+
+
+  <div class="b-example-divider"></div>
+  <nav class="py-2 bg-light border-bottom">
+    <div class="container d-flex flex-wrap">
+      <ul class="nav me-auto">
+        <li class="nav-item"><a href="index.html" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="applicant.html" class="nav-link link-dark px-2">Applicants</a></li>
+        <li class="nav-item"><a href="jobs.html" class="nav-link link-dark px-2">Find job</a></li>
+      </ul>
+    </div>
+  </nav>
+  <header class="py-3 mb-4 border-bottom">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+        
+        <h1>JobFinder</h1> <br>
+        
+      </a>
+    </div>
+  </header>
+
+  <div class="container px-4 py-5">
+
+    <h2>Find job</h2>
+<p>Search existing jobs or report a job.</p><br>
+
+    <form method="get" action="/index">
+      <button class="delete_button">Previous page</button>
+    </form> <br>
+    
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="bgimage h-100 p-5 text-white bg-dark rounded-3">
+          
+          <h2>Job advertisement</h2>
+          
+          <form method="post" action="/jobs">
+            <input class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" type="text" name="jobTitle" placeholder="New Job Title" required> <br>
+            <input class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" type="text" name="jobDescription" placeholder="Description of the job" required><br>
+            <input class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" type="text" name="jobCompany" placeholder="Employer company" required><br>
+            <button class="btn btn-primary btn-sm">Publish</button>
         </form>
-        <form method="post" action="/jobs">
-            <input type="text" name="jobTitle" placeholder="New Job Title" required>
-            <input type="text" name="jobDescription" placeholder="Description of the job" required>
-            <input type="text" name="jobCompany" placeholder="Employer company" required>
-            <button>Add job</button>
-        </form>
-    </body>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2>Jobs</h2> <br>
+            <ul>
+              <li th:each="job:${job}">
+          <div class="border bg-white" style="padding: 10px">
+                  <a th:href="@{/jobs/{item}(item=${job.title}) }" th:text="${job.title} + (' ')">job</a> 
+                  (<span th:href="@{jobs/{item}(item=${job.company}) }" th:text="${job.company}">company</span>) <br> 
+                  <span th:href="@{jobs/{item}(item=${job.description}) }" th:text="${job.description} + (' ')">description</span> 
+              <form  method="post" action="/deletejob">
+                  <input type="hidden" id="jobs" name="jobTitle" th:value="${job.title}">
+                              <button type="submit" class="delete_button">Delete</button>  
+                   </form>
+          </div> <br>
+              </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
 </html>
