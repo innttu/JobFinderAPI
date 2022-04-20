@@ -17,7 +17,7 @@ public class Job extends AbstractPersistable<Long> {
     private String title;
     private String description;
     private String company;
-    private boolean applied = false;
+    //private boolean applied = false;
     
     
     public Job(String jobTitle, String jobDescription, String jobCompany){
@@ -25,9 +25,10 @@ public class Job extends AbstractPersistable<Long> {
         this.description = jobDescription;
         this.company = jobCompany;
     }
-    
+    /*
     public boolean isJobApplied(){
         return this.applied;
     }
+*/
 }
 

@@ -49,7 +49,7 @@ public class JobController {
         jobService.deleteJob(jobTitle);
         return "redirect:/jobs/";
     }
-    
+    /*
     @PostMapping("/applyjob")
     public String applyJob(@RequestParam String userName, String jobTitle){
         applicantService.applyJob(userName, jobTitle);
@@ -64,4 +64,5 @@ public class JobController {
         applicantService.returnJob(userName, jobTitle);
         return "redirect:/applicant/" + userName;
     }
+*/
 }

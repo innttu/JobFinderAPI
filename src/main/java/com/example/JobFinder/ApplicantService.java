@@ -17,10 +17,10 @@ public class ApplicantService {
     @Autowired 
     private JobService jobService;
     
-    public void addApplicant(String name){
-        this.applicantRepository.save(new Applicant(name));
+    public void addApplicant(String name, String profession, int age){
+        this.applicantRepository.save(new Applicant(name, profession, age));
     }
-    
+  
     public ArrayList<Applicant> getApplicant(){
         return this.applicantRepository.findAll();
     }
@@ -29,6 +29,7 @@ public class ApplicantService {
         return this.applicantRepository.findByName(applicantName).get(0);
     }
     
+    /*
     public void applyJob(String applicantName, String jobTitle){
         Applicant applicant = this.findApplicantByName(applicantName);
         Job job = jobService.getJobByTitle(jobTitle);
@@ -51,13 +52,15 @@ public class ApplicantService {
         //System.out.println("applicant.getJobLoaned: " + applicant.getJobLoaned().toString());
         return applicant.getJobApplied();
     }
-    
+    */
     @Transactional
     public void deleteApplicant(String name){
         this.applicantRepository.deleteByName(name);
     }
-
+    /*
     List<String> getAppliedJobs(String applicantName) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+*/
+
 }

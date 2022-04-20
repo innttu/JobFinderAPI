@@ -10,9 +10,11 @@
         <h1>Available jobs</h1>
         <ul>
         <li th:each="job:${job}">
-            <a th:href="@{jobs/{item}(item=${job.title}) }" th:text="${job.title} + (' ')">job</a>
+            <a th:href="@{jobs/{item}(item=${job.title}) }" th:text="${job.title} + (' ')">job</a> (
+            <span th:href="@{jobs/{item}(item=${job.company}) }" th:text="${job.company} + (' ')">company</span>) <br> 
+            <span th:href="@{jobs/{item}(item=${job.description}) }" th:text="${job.description} + (' ')">description</span> 
         <form  method="post" action="/deletejob">
-                        <input type="hidden" id="jobs" name="jobTitle" th:value="${job.title}">
+            <input type="hidden" id="jobs" name="jobTitle" th:value="${job.title}"> <br>
                         <button type="submit">Delete</button>  
              </form>
         </li>

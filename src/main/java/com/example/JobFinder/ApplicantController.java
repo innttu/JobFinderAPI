@@ -29,12 +29,12 @@ public class ApplicantController {
     }
     
     @PostMapping("/applicant")
-    public String addApplicant(@RequestParam String applicantName){
+    public String addApplicant(@RequestParam String applicantName, String applicantProfession, int applicantAge){
         System.out.println("Saatiin: " + applicantName);
-        applicantService.addApplicant(applicantName);
+        applicantService.addApplicant(applicantName, applicantProfession, applicantAge);
         return "redirect:/applicant/";
     }
-    
+   
     @PostMapping("/deleteapplicant")
     public String deleteApplicant(@RequestParam String applicantName){
         System.out.println("Poisto");
@@ -44,11 +44,11 @@ public class ApplicantController {
     @GetMapping("applicant/{applicantName}")
     public String getUserInfo(@PathVariable String applicantName, Model model){
         Applicant user = applicantService.findApplicantByName(applicantName);
-        List<Job> jobs = jobService.getJobs();
-        List<String> appliedjobslist = applicantService.getAppliedJobs(applicantName);
+        //List<Job> jobs = jobService.getJobs();
+        //List<String> appliedjobslist = applicantService.getAppliedJobs(applicantName);
         model.addAttribute("user", user);
-        model.addAttribute("job", jobs);
-        model.addAttribute("appliedjobslist", appliedjobslist);
+        //model.addAttribute("job", jobs);
+        //model.addAttribute("appliedjobslist", appliedjobslist);
         return "user";
     }
 }

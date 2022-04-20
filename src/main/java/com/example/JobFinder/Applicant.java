@@ -18,14 +18,17 @@ public class Applicant extends AbstractPersistable<Long>{
     private String name;
     private String profession;
     private int age;
-    private int appliedJobs = 0;
-    private ArrayList<String> vacancies;
+    //private int appliedJobs = 0;
+    //private ArrayList<String> vacancies;
 
-    public Applicant(String name){
-        this.name = name;
-        this.vacancies = new ArrayList<>();
+    public Applicant(String appName, String appProfession, int appAge){
+        this.name = appName;
+        this.profession = appProfession;
+        this.age = appAge;
+        //this.vacancies = new ArrayList<>();
     }
-       
+}
+       /*
     public void applyJob(Job job){
         System.out.println("applyjob: " + job.getTitle());
         job.setApplied(true);
@@ -34,7 +37,8 @@ public class Applicant extends AbstractPersistable<Long>{
         this.appliedJobs += 1;
         System.out.println("in appliedjobs: " + this.name + " numvacanciess: " + this.appliedJobs);
     }
-    
+    /*
+    /*
     public void returnBooks(Job job){
         String jobTitle = job.getTitle();
         this.vacancies.remove(jobTitle);
@@ -43,8 +47,9 @@ public class Applicant extends AbstractPersistable<Long>{
         if (this.appliedJobs < 0){
             this.appliedJobs = 0;
         }
-    }
+    */
     
+    /*
     public List<String> getVacancies(){
         System.out.println("in getvacancies: " + this.vacancies.toString() + " name: " + this.name);
         return this.vacancies;
@@ -57,4 +62,4 @@ public class Applicant extends AbstractPersistable<Long>{
     List<String> getJobApplied() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-}
+*/
